@@ -111,7 +111,7 @@ class interview_candidate:
             self.display()
 
         elif self.asking ==7:
-            self.locaiton = self.ask("locaiton: ")
+            self.location = self.ask("location: ")
             self.display()
 
         elif self.asking ==5:
@@ -133,6 +133,11 @@ class interview_candidate:
             print()
             self.ask_again()
             
+    def save_data(self):
+        file = open("candidate_details.csv", "a")
+        file.write(f"{self.name},{self.age},{self.college},{self.course},{self.location},{self.member},{self.email}\n")
+        file.close()
+        print("Data Saved")
 
         
 def main():
@@ -140,10 +145,10 @@ def main():
     candidate.general()
     candidate.address()
     candidate.display()
+    candidate.save_data()
     
 
 
-    
     
     
 if __name__ =='__main__':
