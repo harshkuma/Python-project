@@ -70,7 +70,8 @@ class interview_candidate:
             
             
         elif self.choice.lower()=='n':
-            print("Details saved.")
+            print("Details saving....")
+            print()
         
         else:
             print("!!!Invalid input!!!")
@@ -137,19 +138,32 @@ class interview_candidate:
         file = open("candidate_details.csv", "a")
         file.write(f"{self.name},{self.age},{self.college},{self.course},{self.location},{self.member},{self.email}\n")
         file.close()
-        print("Data Saved")
+        
 
         
 def main():
-    candidate = interview_candidate()
-    candidate.general()
-    candidate.address()
-    candidate.display()
-    candidate.save_data()
+    while True:
+        candidate = interview_candidate()
+        candidate.general()
+        candidate.address()
+        candidate.display()
+        candidate.save_data()
+        
+        while True:
+            choice = input("Would you like to enter another candidate detail (y/n): ")
+            if choice == "y":
+                print()
+                break
+            
+            elif choice == 'n':
+                print("All details saved successfully.")
+                return
+            else:
+                print("!!!Invalid Input!!!")
     
 
 
-    
+
     
 if __name__ =='__main__':
     main()
